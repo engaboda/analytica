@@ -1,0 +1,48 @@
+
+services:
+  mongo:
+    image: mongo:5.0
+    container_name: analysita_db
+    environment:
+      - MONGO_INITDB_DATABASE=test_db
+      - MONGO_INITDB_ROOT_USERNAME=test_db_user
+      - MONGO_INITDB_ROOT_PASSWORD=test_db_password
+
+    ports:
+      - 27017:27017
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - mongodata:/data/db
+
+  redis:
+    image: redis
+    container_name: analysita_cache
+    ports:
+      - '6379:6379'
+
+  elastic:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.15.0
+    container_name: analysita_es
+    ports:
+      - '9200:9200'
+    environment:
+      - cluster.name=es8.15
+      - discovery.type=single-node
+      - ELASTIC_PASSWORD=admin
+      - bootstrap.memory_lock=true
+      - xpack.license.self_generated.type=trial
+      - xpack.security.http.ssl.enabled=false
+    volumes:
+      - esdata01:/usr/share/elasticsearch/data
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  mongodata:
+    driver: local
+  postgres_data:
+    driver: local
+  esdata01:
+    driver: local
