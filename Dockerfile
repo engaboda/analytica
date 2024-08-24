@@ -5,7 +5,7 @@ WORKDIR .
 
 # Copy the necessary files and directories into the container
 COPY ./src ./src
-
+COPY ./.env.dev.sh ./.env.dev.sh
 COPY ./requirements.txt ./requirements.txt
 
 # Upgrade pip and install Python dependencies
@@ -15,4 +15,4 @@ RUN pip install -r requirements.txt
 EXPOSE 5000
 
 # Define the command to run the Flask application using Gunicorn
-CMD ["gunicorn", "--timeout", "20", "src.app:app", "-b", "0.0.0.0:5000", "-w", "4"]
+CMD ["gunicorn", "src.app:app", "-b", "0.0.0.0:5000", "-w", "4"]

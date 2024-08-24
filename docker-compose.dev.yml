@@ -19,6 +19,7 @@ services:
     container_name: analysita_backend
     ports:
       - "5000:5000"
+    env_file: ".env.dev.sh"
 
   redis:
     image: redis
@@ -40,6 +41,14 @@ services:
       - xpack.security.http.ssl.enabled=false
     volumes:
       - esdata01:/usr/share/elasticsearch/data
+
+  nginx:
+    container_name: analysita_nginx
+    build: ./nginx/
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
 
 networks:
   backend:

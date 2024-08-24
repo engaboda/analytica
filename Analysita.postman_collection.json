@@ -1,0 +1,613 @@
+{
+	"info": {
+		"_postman_id": "6f298702-788c-4ed4-96f9-6103ea6286b7",
+		"name": "Analysita",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7125843"
+	},
+	"item": [
+		{
+			"name": "Tabular",
+			"item": [
+				{
+					"name": "UploadFile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tabular_file",
+									"type": "file",
+									"src": "/C:/Users/Abdullah/Desktop/test.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/tabular",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tabular"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListFile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tabular?page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tabular"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateDataSet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"PassengerId\": 100020,\r\n    \"Survived\": 100020,\r\n    \"Pclass\": 100020,\r\n    \"Name\": \"Abdullah\",\r\n    \"Sex\": \"male\",\r\n    \"Age\": 28,\r\n    \"SibSp\": 100020,\r\n    \"Parch\": 100020,\r\n    \"Ticket\": \"A/5 0117250\",\r\n    \"Fare\": 150.140,\r\n    \"Cabin\": \"NaN\",\r\n    \"Embarked\": \"S\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/tabular/66c857b77b84055ce7baa3a3/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tabular",
+								"66c857b77b84055ce7baa3a3",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteFile",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tabular/66c7b55daa6d6d74617a6ad1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tabular",
+								"66c7b55daa6d6d74617a6ad1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRow",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"PassengerId\": 100020,\r\n    \"Survived\": 100020,\r\n    \"Pclass\": 100020,\r\n    \"Name\": \"Abdullah\",\r\n    \"Sex\": \"male\",\r\n    \"Age\": 28,\r\n    \"SibSp\": 100020,\r\n    \"Parch\": 100020,\r\n    \"Ticket\": \"A/5 0117250\",\r\n    \"Fare\": 150.140,\r\n    \"Cabin\": \"NaN\",\r\n    \"Embarked\": \"S\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/tabular/66c857b77b84055ce7baa3a3/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tabular",
+								"66c857b77b84055ce7baa3a3",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetHead",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tabular/66c9e90fa76b15a15ac269d2/head",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tabular",
+								"66c9e90fa76b15a15ac269d2",
+								"head"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tabular/66c7b71511fc133ac1907fc5/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tabular",
+								"66c7b71511fc133ac1907fc5",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetColumn",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tabular/66c8eb2a5d0213aee320f807/select/Sex",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tabular",
+								"66c8eb2a5d0213aee320f807",
+								"select",
+								"Sex"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMean",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tabular/66c7b71511fc133ac1907fc5/Age/mean",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tabular",
+								"66c7b71511fc133ac1907fc5",
+								"Age",
+								"mean"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tabular/66c7b71511fc133ac1907fc5/Age/mode",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tabular",
+								"66c7b71511fc133ac1907fc5",
+								"Age",
+								"mode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetQuantile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tabular/66c7b71511fc133ac1907fc5/Age/quantile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tabular",
+								"66c7b71511fc133ac1907fc5",
+								"Age",
+								"quantile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMedian",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tabular/66c8eb2a5d0213aee320f807/Age/median",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tabular",
+								"66c8eb2a5d0213aee320f807",
+								"Age",
+								"median"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SelectWithQuery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tabular/66c7b71511fc133ac1907fc5/select/Age/</33",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tabular",
+								"66c7b71511fc133ac1907fc5",
+								"select",
+								"Age",
+								"<",
+								"33"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SelectWithComplexQuery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tabular/66c8eb2a5d0213aee320f807/select/Age/</33/and/Sex/==/female",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tabular",
+								"66c8eb2a5d0213aee320f807",
+								"select",
+								"Age",
+								"<",
+								"33",
+								"and",
+								"Sex",
+								"==",
+								"female"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DetailsFileApi",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tabular/66c7a2d69e15087e0884d249",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tabular",
+								"66c7a2d69e15087e0884d249"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Text",
+			"item": [
+				{
+					"name": "KeyworkExtraction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"The algorithm works by first splitting the text into individual words or phrases and then building a candidate keyword list based on patterns of word co-occurrence. It assigns scores to each candidate keyword based on its frequency and the frequency of its constituent words. The algorithm also considers the degree to which a candidate keyword represents a distinct phrase by examining word boundaries and stopwords.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/text/keyword_extraction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"text",
+								"keyword_extraction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorization",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fields\": [\"content\", \"category\"],\r\n    \"like\": \"The apple tree (Malus pumila, commonly and erroneously called Malus domestica) \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/text/categorization",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"text",
+								"categorization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"field\": \"category\",\r\n    \"value\": \"Apple (Company)\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/text/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"text",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AllDocs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"field\": \"category\",\r\n    \"value\": \"Apple (Company)\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/text/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"text",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Image",
+			"item": [
+				{
+					"name": "UploadImage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/D:/image (2).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ResizeImage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"size\": [10, 10]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/image/66c8f758313e8a0a6467e3c1/resize",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"image",
+								"66c8f758313e8a0a6467e3c1",
+								"resize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CropImage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"left\": 100,\r\n    \"right\": 300,\r\n    \"top\": 50,\r\n    \"bottom\": 200\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/image/66c9003af26ccdfff5a6c83d/crop",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"image",
+								"66c9003af26ccdfff5a6c83d",
+								"crop"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -45,3 +45,14 @@ we will use PIL to manipulate images.
 2. Resize Image.
 3. Crop Image.
 ```
+
+
+## to run the project
+`docker compose up -f docker-compose.dev.yml --build`
+1. docker-compose.dev.yml `this file for production deployment`
+2. docker-compose.local.yml `this file exclude BE for easy development`
+
+## you can also find postman collection `Analysita.postman_collection.json`
+
+## to run tests
+`python -m unittest discover`
