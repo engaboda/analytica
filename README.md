@@ -48,7 +48,8 @@ we will use PIL to manipulate images.
 
 
 ## to run the project
-`docker compose up -f docker-compose.dev.yml --build`
+`docker compose -f docker-compose.dev.yml up --build`
+
 1. docker-compose.dev.yml `this file for production deployment`
 2. docker-compose.local.yml `this file exclude BE for easy development`
 
