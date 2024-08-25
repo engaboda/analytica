@@ -33,6 +33,41 @@ class ImageResizerApiSerializer:
                 validators(value)
 
 
+class ImageCropApiSerializer:
+    image_crop_api_serializer = reqparse.RequestParser()
+    image_crop_api_serializer.add_argument("left", type=int, required=True)
+    image_crop_api_serializer.add_argument("right", type=int, required=True)
+    image_crop_api_serializer.add_argument("top", type=int, required=True)
+    image_crop_api_serializer.add_argument("bottom", type=int, required=True)
+
+    @staticmethod
+    def validators(left, field_name):
+        if not left:
+            raise exceptions.BadRequest({
+                "message": f"{field_name} field should have numerical value greater than zero.",
+                "status": "failed"
+            })
+
+    def validate_right(self, right):
+        self.validators(right, "right")
+
+    def validate_left(self, left):
+        self.validators(left, "left")
+
+    def validate_top(self, top):
+        self.validators(top, "top")
+
+    def validate_bottom(self, bottom):
+        self.validators(bottom, "bottom")
+
+    def is_valid(self):
+        data = request.json
+        for key, value in data.items():
+            validators = getattr(self, f"validate_{key}")
+            if validators:
+                validators(value)
+
+
 class TabularDataUploadSerializer:
     ACCEPTABLE_FILE_EXTENSION = ('.csv', '.xlsx')
     tabular_file = fields.String()

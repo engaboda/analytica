@@ -86,7 +86,8 @@ while preparing for deployment it takes half day.
 
 # Methodology
 my methodology while building any app trying to make everything readable <br>
-while adding test because test act like documentation.
+while adding test because tests act like documentation.
 
-writing piece of code then test it, sometime, i follow TDD for better outcomes.
+writing piece of code then test it, sometime, sometimes I follow TDD for better outcomes.
 building the app from start to have very easy deployment process.
+also i like to separate serialization from handler.

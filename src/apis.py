@@ -8,7 +8,9 @@ from flask_restful import Resource, fields, marshal_with
 from werkzeug import exceptions
 
 from src.models import FileInfo
-from src.serializers import TabularDataUploadSerializer, ImageResizerApiSerializer
+from src.serializers import (
+    TabularDataUploadSerializer, ImageResizerApiSerializer, ImageCropApiSerializer
+)
 from src.utils.tabular import TabularHelper
 from rake_nltk import Rake
 
@@ -482,12 +484,13 @@ class ImageResizerApi(Resource):
     @staticmethod
     @marshal_with(create_response)
     def post(pk):
-        image_object = FileInfo.objects(id=pk).first()
-        if not image_object:
-            raise exceptions.NotFound("File Not Found.")
 
         serializer = ImageResizerApiSerializer()
         serializer.is_valid()
+
+        image_object = FileInfo.objects(id=pk).first()
+        if not image_object:
+            raise exceptions.NotFound("File Not Found.")
 
         size = request.json.get('size')
         image = image_object.file.read()
@@ -527,6 +530,8 @@ class ImageCropApi(Resource):
     @staticmethod
     @marshal_with(create_response)
     def post(pk):
+        serializer = ImageCropApiSerializer()
+        serializer.is_valid()
         image_object = FileInfo.objects(id=pk).first()
         if not image_object:
             raise exceptions.NotFound("File Not Found.")
