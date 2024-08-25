@@ -2,8 +2,35 @@ import logging
 import os
 from werkzeug import exceptions
 from flask_restful import fields
+from flask_restful import reqparse
+from flask import request
 
 logger = logging.getLogger(__name__)
+
+
+class ImageResizerApiSerializer:
+    image_resizer_api_serializer = reqparse.RequestParser()
+    image_resizer_api_serializer.add_argument(
+        "size", type=dict, help='Size field contains 2 values for resizing image.',
+        required=True
+    )
+
+    @staticmethod
+    def validate_size(size):
+        size_is_empty = not size
+        length_of_size_is_more_than_two = len(size) != 2
+        if size_is_empty or length_of_size_is_more_than_two:
+            raise exceptions.BadRequest({
+                "message": "size should have two values",
+                "status": "failed"
+            })
+
+    def is_valid(self):
+        data = request.json
+        for key, value in data.items():
+            validators = getattr(self, f"validate_{key}")
+            if validators:
+                validators(value)
 
 
 class TabularDataUploadSerializer:
