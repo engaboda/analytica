@@ -65,6 +65,21 @@ class ElasticHelper:
         }
         return MLT_QUERY
 
+    def load_data(self):
+        self.client.indices.create(index="classification", ignore=[400, 404])
+        doc = {
+            "category": "Apple (Company)",
+            "content": """Apple is an American multinational technology company headquartered in Cupertino, California,
+                that designs, develops, and sells consumer electronics, computer software, and online services. Its hardware produc
+                ts include the iPhone smartphone, the iPad tablet computer, the Mac personal computer, the iPod portable media p
+                layer, the Apple Watch smartwatch, and the Apple TV digital media player. Apple's consumer software includes the
+                macOS and iOS operating systems, the iTunes media player, the Safari web browser, and the iLife and iWork creat
+                ivity and productivity suites. Its online services include the iTunes Store, the iOS App Store and Mac App Store
+                , Apple Music, and iCloud."""
+              }
+        for i in range(1, 100):
+            self.client.index(index="classification", id=i, document=doc)
+
     @property
     def client(self):
         if self.CLIENT:

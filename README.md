@@ -91,3 +91,7 @@ while adding test because tests act like documentation.
 writing piece of code then test it, sometime, sometimes I follow TDD for better outcomes.
 building the app from start to have very easy deployment process.
 also i like to separate serialization from handler.
+
+# video for running project and trying it from postman and react dashboard.
+
+## [Video](2024-08-26_22-16-33.mp4/)
